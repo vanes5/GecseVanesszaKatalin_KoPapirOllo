@@ -119,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void ujJatek(){
         init();
-        pointPlayer.setText(0);
-        pointComputer.setText(0);
+        pointPlayer.setText(String.valueOf(0));
+        pointComputer.setText(String.valueOf(0));
     }
 
     public void felirat(){
