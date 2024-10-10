@@ -7,11 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playerImage"
+        android:layout_centerInParent="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A te választása"
+            android:text="Döntetlenek száma:"
+            android:textSize="25sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textDontetlen"
+            android:textSize="25sp"
+            android:text="0"/>
+    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A te választásod"
             android:textSize="30sp"
             android:id="@+id/playerText"
             android:layout_centerInParent="true"
@@ -21,7 +37,8 @@
         android:layout_height="150dp"
         android:id="@+id/playerImage"
         android:src = "@drawable/scissors"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/playerText"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,30 +98,41 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:id="@+id/linearGombok">
 
-        <Button
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:id="@+id/buttonKo"
             android:text="Kő"
-            android:textSize="25sp" />
-        <Button
+            android:src="@drawable/rock"
+            />
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonPapir"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:text="Papír"
-            android:textSize="25sp" />
-        <Button
+            android:textSize="25sp"
+            android:src="@drawable/paper"/>
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonOllo"
             android:text="Olló"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@drawable/scissors"/>
     </LinearLayout>
+
+
 
 </RelativeLayout>

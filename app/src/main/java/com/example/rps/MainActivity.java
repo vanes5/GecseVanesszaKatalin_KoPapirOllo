@@ -5,9 +5,11 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +24,9 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private Button buttonOllo;
-    private Button buttonKo;
-    private Button buttonPapir;
+    private ImageView buttonOllo;
+    private ImageView buttonKo;
+    private ImageView buttonPapir;
     private ImageView imgPlayer;
     private ImageView imgComputer;
     private TextView pointPlayer;
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog.Builder alertDialog;
     private int compKepAzon;
     private int playerKepAzon;
+    private int dontetlen;
+    private TextView dontetlenText;
     //0-ko 1-papir 2-ollo
 
     @Override
@@ -109,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
             pointPlayer.setText(String.valueOf(playerPoint));
             Toast.makeText(MainActivity.this, "Te nyertél", Toast.LENGTH_SHORT).show();
             }
+        }else if(playerKepAzon == compKepAzon){
+            dontetlen++;
+            dontetlenText.setText(String.valueOf(dontetlen));
         }
     }
 
@@ -144,11 +151,13 @@ public class MainActivity extends AppCompatActivity {
         imgComputer = findViewById(R.id.computerImage);
         pointComputer = findViewById(R.id.computerPont);
         pointPlayer = findViewById(R.id.playerPont);
+        dontetlenText = findViewById(R.id.textDontetlen);
         rand = new Random();
         compPoint = 0;
         playerPoint = 0;
         compKepAzon = 0;
         playerKepAzon = 0;
+        dontetlen = 0;
         alertDialog = new AlertDialog.Builder(this).
                 setTitle("Játék vége").
                 setMessage("Szeretnél új játékot?").
@@ -165,5 +174,8 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }
                 });
+    }
+
+    public void onClickMethod(View view) {
     }
 }
