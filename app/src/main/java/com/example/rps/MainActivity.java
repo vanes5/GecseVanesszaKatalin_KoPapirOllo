@@ -24,24 +24,45 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    //gombok
     private ImageView buttonOllo;
     private ImageView buttonKo;
     private ImageView buttonPapir;
+
+    //megjelenites
     private ImageView imgPlayer;
     private ImageView imgComputer;
+
+    //pontok
     private TextView pointPlayer;
     private TextView pointComputer;
     private int compPoint;
     private int playerPoint;
+
+    //comp random
     private Random rand;
     private int randSzam;
+
+    //jatek vege
     private AlertDialog.Builder alertDialog;
+
+    //0-ko 1-papir 2-ollo
     private int compKepAzon;
     private int playerKepAzon;
+
+    //dontetlen
     private int dontetlen;
     private TextView dontetlenText;
-    //0-ko 1-papir 2-ollo
 
+    //szivek
+    private ImageView pSziv1;
+    private ImageView pSziv2;
+    private ImageView pSziv3;
+    private ImageView cSziv1;
+    private ImageView cSziv2;
+    private ImageView cSziv3;
+
+    //kod kezdete
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,20 +119,20 @@ public class MainActivity extends AppCompatActivity {
     // 0-ko 1-papir 2-ollo
     public void gyoztes(){
         if((compKepAzon == 0 && playerKepAzon == 2) ||(compKepAzon== 1 && playerKepAzon == 0) || (compKepAzon == 2 && playerKepAzon == 1)){
-            compPoint++;
-            if (compPoint == 3 || playerPoint == 3){
+            if (playerPoint == 1){
+                pSziv1.setImageResource(R.drawable.heart1);
                 felirat();
             }else {
-                pointComputer.setText(String.valueOf(compPoint));
+                szivVesztes("Player");
                 Toast.makeText(MainActivity.this, "Computer nyert", Toast.LENGTH_SHORT).show();
             }
         }else if((playerKepAzon == 0 && compKepAzon == 2) || (playerKepAzon == 1 && compKepAzon == 0) || (playerKepAzon == 2 && compKepAzon == 1)){
-            playerPoint++;
-            if (compPoint == 3 || playerPoint == 3){
+            if (compPoint == 1){
+                cSziv3.setImageResource(R.drawable.heart1);
                 felirat();
             }else {
-            pointPlayer.setText(String.valueOf(playerPoint));
-            Toast.makeText(MainActivity.this, "Te nyertél", Toast.LENGTH_SHORT).show();
+                szivVesztes("Computer");
+                Toast.makeText(MainActivity.this, "Te nyertél", Toast.LENGTH_SHORT).show();
             }
         }else if(playerKepAzon == compKepAzon){
             dontetlen++;
@@ -128,6 +149,12 @@ public class MainActivity extends AppCompatActivity {
         init();
         pointPlayer.setText(String.valueOf(0));
         pointComputer.setText(String.valueOf(0));
+        pSziv1.setImageResource(R.drawable.heart2);
+        pSziv2.setImageResource(R.drawable.heart2);
+        pSziv3.setImageResource(R.drawable.heart2);
+        cSziv1.setImageResource(R.drawable.heart2);
+        cSziv2.setImageResource(R.drawable.heart2);
+        cSziv3.setImageResource(R.drawable.heart2);
     }
 
     public void felirat(){
@@ -143,6 +170,30 @@ public class MainActivity extends AppCompatActivity {
             }
     }
 
+    public void szivVesztes(String vesztes ){
+        if (vesztes == "Player"){
+            if (playerPoint == 3){
+                pSziv3.setImageResource(R.drawable.heart1);
+                playerPoint--;
+            }
+            else if (playerPoint == 2) {
+                pSziv2.setImageResource(R.drawable.heart1);
+                playerPoint--;
+            }
+        }
+        else if (vesztes == "Computer"){
+            if (compPoint == 3){
+                cSziv1.setImageResource(R.drawable.heart1);
+                compPoint--;
+            }
+            else if (compPoint == 2){
+                cSziv2.setImageResource(R.drawable.heart1);
+                compPoint--;
+            }
+        }
+
+    }
+
     public void init(){
         buttonKo = findViewById(R.id.buttonKo);
         buttonOllo = findViewById(R.id.buttonOllo);
@@ -152,9 +203,15 @@ public class MainActivity extends AppCompatActivity {
         pointComputer = findViewById(R.id.computerPont);
         pointPlayer = findViewById(R.id.playerPont);
         dontetlenText = findViewById(R.id.textDontetlen);
+        pSziv1 = findViewById(R.id.playersziv1);
+        pSziv2 = findViewById(R.id.playersziv2);
+        pSziv3 = findViewById(R.id.playersziv3);
+        cSziv1 = findViewById(R.id.compsziv1);
+        cSziv2 = findViewById(R.id.compsziv2);
+        cSziv3 = findViewById(R.id.compsziv3);
         rand = new Random();
-        compPoint = 0;
-        playerPoint = 0;
+        compPoint = 3;
+        playerPoint = 3;
         compKepAzon = 0;
         playerKepAzon = 0;
         dontetlen = 0;
@@ -176,6 +233,4 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    public void onClickMethod(View view) {
-    }
 }

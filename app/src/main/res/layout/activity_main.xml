@@ -10,6 +10,65 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/playerSzivek"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        tools:ignore="Orientation">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/playersziv1"
+            android:src="@drawable/heart2"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/playersziv2"
+            android:src="@drawable/heart2"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/playersziv3"
+            android:src="@drawable/heart2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Játékos"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/compSzivek"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        tools:ignore="Orientation">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Computer "
+            android:textSize="25dp" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/compsziv1"
+            android:src="@drawable/heart2"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/compsziv2"
+            android:src="@drawable/heart2"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/compsziv3"
+            android:src="@drawable/heart2"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/playerImage"
         android:layout_centerInParent="true">
         <TextView
@@ -24,14 +83,6 @@
             android:textSize="25sp"
             android:text="0"/>
     </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A te választásod"
-            android:textSize="30sp"
-            android:id="@+id/playerText"
-            android:layout_centerInParent="true"
-            android:layout_above="@+id/computerImage"/>
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -40,69 +91,43 @@
         android:layout_centerInParent="true"
         android:layout_above="@+id/playerText"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A gép választása"
-            android:textSize="30sp"
-            android:id="@+id/computerText"
-            android:layout_above="@+id/layoutEredmeny"
-            android:layout_centerHorizontal="true"/>
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/computerImage"
-            android:src = "@drawable/scissors"
-            android:layout_above="@+id/computerText"
-            android:layout_centerHorizontal="true"
-            />
-
-    <LinearLayout
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="A te választásod"
+        android:textSize="30sp"
+        android:id="@+id/playerText"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/computerImage"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/computerImage"
+        android:src = "@drawable/scissors"
+        android:layout_above="@+id/computerText"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A gép választása"
+        android:textSize="30sp"
+        android:id="@+id/computerText"
         android:layout_above="@+id/linearGombok"
-        android:id="@+id/layoutEredmeny"
-        android:layout_centerInParent="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eredmény:"
-            android:textSize="20sp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ember:"
-            android:textSize="20sp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="20sp"
-            android:id="@+id/playerPont"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Computer:"
-            android:textSize="20sp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="20sp"
-            android:id="@+id/computerPont"
-            />
-    </LinearLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"/>
+
+
 
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="340dp"
+        android:layout_height="110dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:id="@+id/linearGombok">
+        android:id="@+id/linearGombok"
+        android:layout_marginBottom="50dp">
 
         <ImageView
             android:layout_width="wrap_content"
