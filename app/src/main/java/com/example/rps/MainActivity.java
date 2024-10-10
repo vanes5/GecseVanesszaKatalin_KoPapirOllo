@@ -2,6 +2,7 @@ package com.example.rps;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -34,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgComputer;
 
     //pontok
-    private TextView pointPlayer;
-    private TextView pointComputer;
     private int compPoint;
     private int playerPoint;
 
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -147,8 +147,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void ujJatek(){
         init();
-        pointPlayer.setText(String.valueOf(0));
-        pointComputer.setText(String.valueOf(0));
         pSziv1.setImageResource(R.drawable.heart2);
         pSziv2.setImageResource(R.drawable.heart2);
         pSziv3.setImageResource(R.drawable.heart2);
@@ -200,8 +198,6 @@ public class MainActivity extends AppCompatActivity {
         buttonPapir = findViewById(R.id.buttonPapir);
         imgPlayer = findViewById(R.id.playerImage);
         imgComputer = findViewById(R.id.computerImage);
-        pointComputer = findViewById(R.id.computerPont);
-        pointPlayer = findViewById(R.id.playerPont);
         dontetlenText = findViewById(R.id.textDontetlen);
         pSziv1 = findViewById(R.id.playersziv1);
         pSziv2 = findViewById(R.id.playersziv2);
